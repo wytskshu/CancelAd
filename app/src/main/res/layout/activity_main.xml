@@ -53,6 +53,10 @@
                 android:text="是否启用"
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 android:textSize="18sp" />
+            <com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView
+                android:id="@+id/main_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView>
 
         </LinearLayout>
 
