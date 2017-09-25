@@ -156,8 +156,8 @@ class Filed {
          * @throws IOException
          */
         @Throws(IOException::class)
-        fun saveToFile(filePath: String, content: String) {
-            saveToFile(filePath, content, System.getProperty("file.encoding"))
+        fun saveToFile(filePath: String, content: String,append: Boolean) {
+            saveToFile(filePath, content, System.getProperty("file.encoding"),append)
         }
 
         /**
@@ -171,14 +171,14 @@ class Filed {
          * @throws IOException
          */
         @Throws(IOException::class)
-        fun saveToFile(filePath: String, content: String, encoding: String) {
+        fun saveToFile(filePath: String, content: String, encoding: String,append: Boolean) {
             var writer: BufferedWriter? = null
             val file = File(filePath)
             try {
                 if (!file.parentFile.exists()) {
                     file.parentFile.mkdirs()
                 }
-                writer = BufferedWriter(OutputStreamWriter(FileOutputStream(file, false), encoding))
+                writer = BufferedWriter(OutputStreamWriter(FileOutputStream(file, append), encoding))
                 writer.write(content)
 
             } finally {
@@ -246,6 +246,7 @@ class Filed {
             reader.close()
             `is`.close()
         }
+
 
     }
 }
